@@ -6,7 +6,7 @@ CREATE TABLE companies (
   logo_url TEXT
 );
 
-CREATE TABLE users (
+CREATE TABLE jobly_users (
   username VARCHAR(25) PRIMARY KEY,
   password TEXT NOT NULL,
   first_name TEXT NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE jobs (
 
 CREATE TABLE applications (
   username VARCHAR(25)
-    REFERENCES users ON DELETE CASCADE,
+    REFERENCES jobly_users ON DELETE CASCADE,
   job_id INTEGER
     REFERENCES jobs ON DELETE CASCADE,
   PRIMARY KEY (username, job_id)
